@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Test page</title>
+  <style media="screen">
+    body {
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .column {
+      font-size: 4rem;
+      color: white;
+
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .floats .column {
+      float: left;
+      width: 33.33%;
+    }
+
+    .blocks .column {
+      display: inline-block;
+      width: 33.33%;
+    }
+
+    .flexBox {
+      display: flex;
+    }
+
+    .flexBox .column {
+      flex: auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+  </style>
+</head>
+<body>
+<section class="floats">
+  <div class="column" style="background-color: red">1</div>
+  <div class="column" style="background-color: orange">2</div>
+  <div class="column" style="background-color: yellow">3</div>
+</section>
+<section class="blocks">
+  <div class="column" style="background-color: green">1</div><!--
+     --><div class="column" style="background-color: blue">2</div><!--
+     --><div class="column" style="background-color: darkblue">3</div>
+
+</section>
+<section class="flexBox">
+  <div class="column" style="background-color: darkmagenta">1</div>
+  <div class="column" style="background-color: red">2</div>
+  <div class="column" style="background-color: orange">3</div>
+</section>
+<section class="grid">
+  <div class="column" style="background-color: yellow">1</div>
+  <div class="column" style="background-color: green">2</div>
+  <div class="column" style="background-color: blue">3</div>
+</section>
+</body>
+</html>

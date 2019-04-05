@@ -1,0 +1,192 @@
+body {
+    margin: 0;
+}
+
+* {
+    font-family: Helvetica;
+}
+
+#all__content {
+
+}
+
+.header {
+    background: white;
+    display: flex;
+}
+
+
+.logo {
+    padding: 14px;
+    text-align: left;
+    font-size: 4vw;
+    display: flex;
+    margin-left: 6vw;
+}
+
+
+.header div {
+    display: flex;
+    font-size: 2vw;
+}
+
+.menu {
+    padding: 1%;
+    margin-left: 35%;
+}
+
+.menu a {
+    color: darkcyan;
+    text-decoration: none;
+    font-size: 1.25vw;
+    padding: 1.5vw;
+    margin-top: 0.5vw;
+}
+
+#products {
+
+    background: #1abc9c;
+    display: flex;
+}
+
+.image {
+    padding: 4vw;
+    padding-right: 16vw;
+    margin-left: 12vw;
+}
+
+.headline {
+    color: white;
+    padding-top: 14vh;
+}
+
+.description {
+    margin-right: 9rem;
+    color: white;
+}
+
+button {
+    outline: none;
+    font-weight: bold;
+    background: #1abc9c;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    padding: 1vw;
+    cursor: pointer;
+
+}
+
+#aboutUs {
+    background: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#aboutUs div {
+    text-align: center;
+}
+
+#aboutUs h3 {
+    color: #2d3436;
+}
+
+.fas, .fab {
+    color: white;
+    margin-top: 3rem;
+    border-radius: 50%;
+    background: #1abc9c;
+    width: 5rem;
+    height: 4rem;
+    font-size: 3rem;
+    text-align: center;
+    padding-top: 1rem;
+}
+
+#contactUs {
+    background: #1abc9c;
+    text-align: center;
+    padding-top: 1rem;
+}
+
+#contactUs h2 {
+    color: #2d3436;
+}
+
+.inputs {
+    align-items: center;
+    margin: 0 30vw;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.check {
+    margin-top: 2vh;
+    text-align: center;
+    border: 5px solid red;
+}
+
+input {
+    font-size: 2.5vh;
+    margin-top: 1vh;
+    outline: none;
+    background: white;
+    border: none;
+}
+
+#select-box {
+    border: none;
+}
+
+#submit, #reset {
+    border: 1px solid black;
+}
+
+.content {
+    color: #16a085;
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+#question {
+    margin-top: 1vh;
+    height: 5rem;
+}
+
+.text-input {
+    font-size: 2.5vh;
+    width: 100%;
+    resize: none;
+    border: none;
+    outline: none;
+    padding: 0;
+}
+
+#sendEmail {
+    width: 45%;
+    margin-top: 10vh;
+    margin-bottom: 20vh;
+    font-size: 2.5vh;
+}
+
+label {
+    margin-top: 2vh
+}
+
+input {
+    width: 50%;
+}
+
+#check__box {
+    width: auto;
+}
+
+#radio {
+    align-items: normal;
+}
+
+.radio {
+    width: 5%;
+}
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3 column layout</title>
+  <style media="screen">
+    body {
+      margin: 0;
+    }
+
+    * {
+      margin: 0;
+      font-weight: bold;
+      font-family: "Times New Roman";
+    }
+
+    .column {
+      min-height: calc(80vh - 6px);
+      border: 1px solid red;
+      font-size: 10vh;
+      text-align: center;
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    header {
+      font-size: 9vh;
+      border: 1px solid red;
+      height: 10vh;
+      text-align: center;
+    }
+
+    #footer {
+      height: 10vh;
+      font-size: 9vh;
+      border: 1px solid red;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+<header>header</header>
+<section class="columns">
+  <div class="column"><p>first
+    </p></div>
+  <div class="column"><p>second</p></div>
+  <div class="column"><p>third</p></div>
+</section>
+<footer id="footer">footer</footer>
+</body>
+</html>
