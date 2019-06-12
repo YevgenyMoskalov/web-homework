@@ -44,15 +44,13 @@ body {
 }
 
 #products {
-
+    padding: 5% 15% 5% 15%;
     background: #1abc9c;
     display: flex;
 }
 
 .image {
-    padding: 4vw;
-    padding-right: 16vw;
-    margin-left: 12vw;
+    /*padding-right: 16vw;*/
 }
 
 .headline {
@@ -61,7 +59,6 @@ body {
 }
 
 .description {
-    margin-right: 9rem;
     color: white;
 }
 
@@ -78,6 +75,8 @@ button {
 }
 
 #aboutUs {
+    width: 80%;
+    padding-left: 10%;
     background: white;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -104,9 +103,9 @@ button {
 }
 
 #contactUs {
+    padding: 5% 30% 5% 30%;
     background: #1abc9c;
     text-align: center;
-    padding-top: 1rem;
 }
 
 #contactUs h2 {
@@ -115,7 +114,6 @@ button {
 
 .inputs {
     align-items: center;
-    margin: 0 30vw;
     width: 40vw;
     display: flex;
     flex-direction: column;
@@ -145,8 +143,10 @@ input {
 
 .content {
     color: #16a085;
-    padding-left: 5vw;
-    padding-right: 5vw;
+}
+
+.products-data{
+    margin-left: 30%;
 }
 
 #question {
