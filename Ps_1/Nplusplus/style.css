@@ -1,13 +1,9 @@
 body {
-    margin: 0;
+    margin: 0 15%;
 }
 
 * {
-    font-family: Helvetica;
-}
-
-#all__content {
-
+    font-family: Helvetica, serif;
 }
 
 .header {
@@ -19,15 +15,13 @@ body {
 .logo {
     padding: 14px;
     text-align: left;
-    font-size: 4vw;
+    font-size: 4rem;
     display: flex;
-    margin-left: 6vw;
 }
 
-
 .header div {
-    display: flex;
-    font-size: 2vw;
+    margin-top: 1rem;
+    font-size: 1rem;
 }
 
 .menu {
@@ -38,24 +32,19 @@ body {
 .menu a {
     color: darkcyan;
     text-decoration: none;
-    font-size: 1.25vw;
-    padding: 1.5vw;
-    margin-top: 0.5vw;
+    font-size: 1.5rem;
+    padding: 1rem;
 }
 
 #products {
-    padding: 5% 15% 5% 15%;
+    padding: 5% 0 5% 0;
     background: #1abc9c;
     display: flex;
 }
 
-.image {
-    /*padding-right: 16vw;*/
-}
-
 .headline {
     color: white;
-    padding-top: 14vh;
+    vertical-align: top;
 }
 
 .description {
@@ -69,20 +58,19 @@ button {
     border: 2px solid white;
     border-radius: 5px;
     color: white;
-    padding: 1vw;
+    padding: 8px;
     cursor: pointer;
 
 }
 
 #aboutUs {
-    width: 80%;
-    padding-left: 10%;
     background: white;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+
 }
 
-#aboutUs div {
+.aboutUs1, .aboutUs2, .aboutUs3 {
     text-align: center;
 }
 
@@ -103,7 +91,7 @@ button {
 }
 
 #contactUs {
-    padding: 5% 30% 5% 30%;
+    padding: 5% 0 5% 0;
     background: #1abc9c;
     text-align: center;
 }
@@ -113,21 +101,22 @@ button {
 }
 
 .inputs {
+    margin-left: 25%;
     align-items: center;
-    width: 40vw;
+    width: 50%;
     display: flex;
     flex-direction: column;
 }
 
 .check {
-    margin-top: 2vh;
+    margin-top: 1rem;
     text-align: center;
     border: 5px solid red;
 }
 
 input {
-    font-size: 2.5vh;
-    margin-top: 1vh;
+    font-size: 1rem;
+    margin-top: 1rem;
     outline: none;
     background: white;
     border: none;
@@ -145,17 +134,18 @@ input {
     color: #16a085;
 }
 
-.products-data{
-    margin-left: 30%;
+.products-data {
+    margin-left: 15%;
+    width: 40%;
 }
 
 #question {
-    margin-top: 1vh;
+    margin-top: 1rem;
     height: 5rem;
 }
 
 .text-input {
-    font-size: 2.5vh;
+    font-size: 1rem;
     width: 100%;
     resize: none;
     border: none;
@@ -165,16 +155,17 @@ input {
 
 #sendEmail {
     width: 45%;
-    margin-top: 10vh;
-    margin-bottom: 20vh;
-    font-size: 2.5vh;
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+    font-size: 1.5rem;
 }
 
 label {
-    margin-top: 2vh
+    margin-top: 0.5rem;
 }
 
 input {
+    padding: 5px;
     width: 50%;
 }
 
@@ -182,8 +173,8 @@ input {
     width: auto;
 }
 
-#radio {
-    align-items: normal;
+.image {
+    margin-left: 20%;
 }
 
 .radio {

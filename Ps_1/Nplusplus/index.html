@@ -9,112 +9,111 @@
         crossorigin="anonymous">
 </head>
 <body>
-<div id="all__content">
-  <section class="header">
-    <a class="logo">N<span style="color: #1abc9c">++</span></a>
-    <div class="menu">
-      <a href="#products">PRODUCTS</a>
-      <a href="#aboutUs">ABOUT US</a>
-      <a href="#contactUs">CONTACT US</a>
-    </div>
-  </section>
-  <div id="products">
-    <div class="image">
-      <img src="images/phone.png">
-    </div>
-    <div class="products-data">
-      <h2 class="headline">Our awesome app is ready to use</h2>
-      <p class="description"> Lorem ipsum dolor sit amet, consectetur
-        adipisicing elit. Pariatur vero laboriosam adipisci dolores
-        aut blanditiis necessitatibus inventor, eius fuga porro
-        recusandae sint quis aliguam nam iure nihil beater, atque quod!
-      </p>
-      <button class="button">Buy now!</button>
-    </div>
+
+<header class="header">
+  <a class="logo">N<span style="color: #1abc9c">++</span></a>
+  <div class="menu">
+    <a href="#products">PRODUCTS</a>
+    <a href="#aboutUs">ABOUT US</a>
+    <a href="#contactUs">CONTACT US</a>
   </div>
-  <div id="aboutUs">
-    <div>
-      <i class="fas fa-code"></i>
-      <h3>Web development</h3>
-      <p class="content">
-        Lorem ipsum dolor sit amet, consectetur adipising
-        elit. Nodis nostrum suscipit vel ipsa fugiat tempore
-        molestiae error autem architecto eum, natus,
-        voluptatum eos commodi debitis, expedita pariatur
-        recusandae temporibus voluptatibus!
-      </p>
-    </div>
-    <div>
-      <i class="fab fa-android"></i>
-      <h3>Mobile development</h3>
-      <p class="content">
-        Lorem ipsum dolor sit amet, consectetur adipising
-        elit. Velit earum quidem repellendus, quasi omnis
-        provident ipsam a quisquam sed consectetur aliquid
-        esse corporis a quisquam sed consectetur aliquid
-        esse corporis non, dolorem eius delectus deleniti
-        tempore dolores.
-      </p>
-    </div>
-    <div>
-      <i class="fas fa-cloud"></i>
-      <h3>Hightload</h3>
-      <p class="content">
-        Lorem ipsum dolor sit amet, consectetur adipising
-        elit.Id itaque totam maxime doloremque inventore
-        mollitia, fuga aut autem, sequi harum sepiente
-        commodi recusandae, eligendi rerum iste
-        consequuntur, quasi tempora atque!
-      </p>
-    </div>
+</header>
+<div id="products">
+  <div class="image">
+    <img src="images/phone.png">
   </div>
-  <div id="contactUs">
-    <h1 style="color: white">Contact Us</h1>
-    <form action="" class="inputs">
-      <input class="text-input" type="text" placeholder="Type here your name">
-      <input class="text-input" type="email" pattern=".+@gmail.com" size="30" required
-             placeholder="Type here your email">
-      <input class="text-input" type="password" minlength="8" required placeholder="Type here your password">
-      <input class="text-input" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required
-             placeholder="Enter your phone number">
-      <input class="text-input" type="url" placeholder="Enter an https://example.com" pattern="https://.*" size="30"
-             required>
-      <textarea class="text-input" id="question" placeholder="Ask your question"></textarea>
-      <button id="sendEmail">Send email!</button>
-      <!--Дополнительные инпуты-->
-      <label>Search site</label>
-      <input type="search" aria-label="Search through site content" placeholder="Search">
-      <label for="col">Eye color:</label>
-      <input type="color" id="col" value=#ff0000>
-      <label for="check__box"> <input type="checkbox" id="check__box">I agree to the privacy policy</label>
-      <label>Date of birth:</label>
-      <input type="date" id="date__of__birth" min="1900-01-01" max="2001-03-01">
-      <label>Choose a time for your appointment:</label>
-      <input type="datetime-local" value="2019-03-01T12:00" min="2019-03-01T00:00" max="2019-03-31T00:00">
-      <label>Choose a profile picture:</label>
-      <input type="file" accept="image/png, image/jpeg" style="font-size: 1.5vh">
-      <label>Start month:</label>
-      <input type="month" min="2019-03" value="2019-03">
-      <label>favorite number (0-100):</label>
-      <input type="number" min="0" max="100">
-      <p>How much time do you spend online?</p>
-      <div style="">
-        <label><input class="radio" type="radio" name="hours" checked>Less than an hour a day</label>
-        <label><input class="radio" type="radio" name="hours">1-3 hours a day</label>
-        <label><input class="radio" type="radio" name="hours">more than 3 hours a day</label>
-      </div>
-      <label>Your self-reliance:</label>
-      <input type="range" min="0" max="11">
-      <label>What time do you wake up:</label>
-      <input type="time" min="00:00" max="23:59" required>
-      <label>Password (8 characters minimum):</label>
-      <div class="check">
-        <h2 style="color: red">I am not a robot!</h2>
-        <label for="week">Choose a week in May or June:</label>
-        <input type="week" name="week" id="week" min="2019-W01" max="2019-W52" required>
-      </div>
-    </form>
+  <div class="products-data">
+    <h2 class="headline">Our awesome app is ready to use</h2>
+    <p class="description"> Lorem ipsum dolor sit amet, consectetur
+      adipisicing elit. Pariatur vero laboriosam adipisci dolores
+      aut blanditiis necessitatibus inventor, eius fuga porro
+      recusandae sint quis aliguam nam iure nihil beater, atque quod!
+    </p>
+    <button class="button">Buy now!</button>
   </div>
+</div>
+<div id="aboutUs">
+  <div class="aboutUs1">
+    <i class="fas fa-code"></i>
+    <h3>Web development</h3>
+    <p class="content">
+      Lorem ipsum dolor sit amet, consectetur adipising
+      elit. Nodis nostrum suscipit vel ipsa fugiat tempore
+      molestiae error autem architecto eum, natus,
+      voluptatum eos commodi debitis, expedita pariatur
+      recusandae temporibus voluptatibus!
+    </p>
+  </div>
+  <div class="aboutUs2">
+    <i class="fab fa-android"></i>
+    <h3>Mobile development</h3>
+    <p class="content">
+      Lorem ipsum dolor sit amet, consectetur adipising
+      elit. Velit earum quidem repellendus, quasi omnis
+      provident ipsam a quisquam sed consectetur aliquid
+      esse corporis a quisquam sed consectetur aliquid
+      esse corporis non, dolorem eius delectus deleniti
+      tempore dolores.
+    </p>
+  </div>
+  <div class="aboutUs3">
+    <i class="fas fa-cloud"></i>
+    <h3>Hightload</h3>
+    <p class="content">
+      Lorem ipsum dolor sit amet, consectetur adipising
+      elit.Id itaque totam maxime doloremque inventore
+      mollitia, fuga aut autem, sequi harum sepiente
+      commodi recusandae, eligendi rerum iste
+      consequuntur, quasi tempora atque!
+    </p>
+  </div>
+</div>
+<div id="contactUs">
+  <h1 style="color: white">Contact Us</h1>
+  <form action="" class="inputs">
+    <input class="text-input" type="text" placeholder="Type here your name">
+    <input class="text-input" type="email" pattern=".+@gmail.com" size="30" required
+           placeholder="Type here your email">
+    <input class="text-input" type="password" minlength="8" required placeholder="Type here your password">
+    <input class="text-input" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required
+           placeholder="Enter your phone number">
+    <input class="text-input" type="url" placeholder="Enter an https://example.com" pattern="https://.*" size="30"
+           required>
+    <textarea class="text-input" id="question" placeholder="Ask your question"></textarea>
+    <button id="sendEmail">Send email!</button>
+    <!--Дополнительные инпуты-->
+    <label>Search site</label>
+    <input type="search" aria-label="Search through site content" placeholder="Search">
+    <label for="col">Eye color:</label>
+    <input type="color" id="col" value=#ff0000>
+    <label for="check__box"> <input type="checkbox" id="check__box">I agree to the privacy policy</label>
+    <label>Date of birth:</label>
+    <input type="date" id="date__of__birth" min="1900-01-01" max="2001-03-01">
+    <label>Choose a time for your appointment:</label>
+    <input type="datetime-local" value="2019-03-01T12:00" min="2019-03-01T00:00" max="2019-03-31T00:00">
+    <label>Choose a profile picture:</label>
+    <input type="file" accept="image/png, image/jpeg">
+    <label>Start month:</label>
+    <input type="month" min="2019-03" value="2019-03">
+    <label>favorite number (0-100):</label>
+    <input type="number" min="0" max="100">
+    <p>How much time do you spend online?</p>
+    <div style="">
+      <label><input class="radio" type="radio" name="hours" checked>Less than an hour a day</label>
+      <label><input class="radio" type="radio" name="hours">1-3 hours a day</label>
+      <label><input class="radio" type="radio" name="hours">more than 3 hours a day</label>
+    </div>
+    <label>Your self-reliance:</label>
+    <input type="range" min="0" max="11">
+    <label>What time do you wake up:</label>
+    <input type="time" min="00:00" max="23:59" required>
+    <label>Password (8 characters minimum):</label>
+    <div class="check">
+      <h2 style="color: red">I am not a robot!</h2>
+      <label for="week">Choose a week in May or June:</label>
+      <input type="week" name="week" id="week" min="2019-W01" max="2019-W52" required>
+    </div>
+  </form>
 </div>
 </body>
 </html>
