@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Warm up Js</title>
+  <script src="script.js"></script>
+  <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h2>The sum of the sampling interval of numbers ending in 2/3/7</h2>
+<form action="">
+  <label for="first-number">first number:</label>
+  <input id="first-number" type="number">
+  <label for="second-number">second number:</label>
+  <input id="second-number" type="number">
+  <input type="button" name="submit" value="calculate" onclick="sumCalculation()">
+  <label>Result:<span id="result"></span></label>
+</form>
+<h2>Conversion (ss / hh: mm: ss)</h2>
+<form action="">
+  <label for="second-ss">Enter seconds:</label>
+  <input id="second-ss" type="number">
+  <input id="second-convert" type="button" value="convert" onclick="conversion()">
+  <label>hh: mm: ss = <span id="conversion-result"></span></label>
+</form>
+<h2>Conversion (hh: mm: ss / ss)</h2>
+<form action="">
+  <label for="time">Enter time:</label>
+  <input type="text" placeholder="hh:mm:ss" id="time">
+  <input id="time-convert" type="button" value="convert" onclick="reconversion()">
+  <label>number of seconds = <span id="reconversion-result"></span></label>
+</form>
+<h2>Calculate the time span</h2>
+<form action="">
+  <label for="first-date">first date:</label>
+  <input type=datetime-local id="first-date">
+  <label for="second-date">second date:</label>
+  <input type=datetime-local id="second-date">
+  <input type="button" value="calculate" onclick="getTimeDifference()">
+  <label>time difference = <span id="time-difference"></span></label>
+</form>
+<form action=""><br>
+  <input type="number" min="1" id="width" value="1">
+  <input type="number" min="1" id="height" value="1">
+  <input type="button" onclick="render()" value="start render">
+  <div id="bord"></div>
+</form>
+<h2></h2>
+<form action="">
+  <textarea placeholder="URL/IP" class="textarea" onfocusout="sortUrlAndIp()" id="date"></textarea>
+  <p id="outputURL"></p>
+</form>
+<form class="regularExpressionsTest">
+  <textarea placeholder="data for regular expressions" class="textarea" id = "regularExpressionsTest-data"></textarea>
+  <input type="text" id = "regex">
+  <button type="button" onclick="markText()">submit</button>
+  <p id = "newTextarea"></p>
+</form>
+</body>
+</html>
