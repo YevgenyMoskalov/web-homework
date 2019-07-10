@@ -11,37 +11,37 @@ const ATM = {
     ],
     // authorization
     auth(id, pin) {
-        if(!this.isAuth) {
-            let i = 0;
-
-            let users = this.users;
-            let usersLength = users.length;
-            for (; i < usersLength; i++) {
-                if (id === users[i].id && pin === users[i].pin) {
-                    this.isAuth = true;
-                    break;
-                }
-            }
-
-            if (this.isAuth) {
-                if (i === 0) {
-                    console.log("Вы авторизовались как администратор")
-                } else {
-                    console.log("Привет!\n твой id " + this.users[i].id);
-                }
-                this.currentUser = this.users[i];
-                this.logs.push("Пользователь \"/" + this.currentUser.id + "\" вошел в систему");
-            } else {
-                console.log("не правельный id или pin")
-            }
-        }else {
+        if (this.isAuth) {
             console.log("Вы уже авторизированы ваш id " + this.currentUser.id)
+            return;
+        }
+
+        const users = this.users;
+        const usersLength = users.length;
+
+        for (let i = 0; i < usersLength; i++) {
+            const user = users[i];
+
+            if (id === user.id && pin === user.pin) {
+                this.isAuth = true;
+                this.currentUser = user;
+                if (this.currentUser.type !== 'admin') {
+                    console.log("Привет!\n твой id " + this.users[i].id);
+                } else {
+                    console.log("Вы авторизирвались как админ!")
+                }
+                break;
+            }
         }
     },
     // check current debet
     check() {
         if (!this.isAuth) {
             console.log("Вы не авторизировались!\n")
+            return;
+        }
+        if(this.currentUser.type === 'admin'){
+            console.log("Вы авторизирвались как админ!")
         } else {
             console.log("Сумма на вашем счёте:" + this.currentUser.debet);
             this.logs.push("Пользователь \"/" + this.currentUser.id + "\" проверил свой счёт");
@@ -63,10 +63,10 @@ const ATM = {
     loadCash(amount) {
         if (!this.isAuth) {
             console.log("Вы не авторизировались!\n");
-        } else if(this.currentUser === this.users[0]){
+        } else if (this.currentUser === this.users[0]) {
             console.log("Администратор не может пополнять свой счёт");
             return;
-        }else if (!isNaN(amount) && amount > 0) {
+        } else if (!isNaN(amount) && amount > 0) {
             this.currentUser.debet += amount;
             this.cash += amount;
             this.logs.push("Пользователь \"/" + this.currentUser.id + "\" полжил " + amount + "на свой счёт");
@@ -78,10 +78,11 @@ const ATM = {
     loadAtmCash(amount) {
         if (!this.isAuth) {
             console.log("Вы не авторизировались!\n")
-        } else if (this.currentUser !== this.users[0]) {
+        } else if (this.currentUser.type !== 'admin') {
             console.log("Вы не администратор!")
         } else if (!isNaN(amount) && amount > 0) {
             this.cash += amount;
+            console.log("Банкомат пополнен на " + amount);
             this.logs.push("Банкомат пополнен на " + amount);
         } else {
             console.log("Вы ввели неверное значение")
@@ -91,7 +92,7 @@ const ATM = {
     getLogs() {
         if (!this.isAuth) {
             console.log("Вы не авторизировались!\n")
-        } else if (this.currentUser !== this.users[0]) {
+        } else if (this.currentUser.type !== 'admin') {
             console.log("Вы не администратор!")
         } else {
             let logLength = this.logs.length;
@@ -108,9 +109,10 @@ const ATM = {
         if (!this.isAuth) {
             console.log("И куда ты хочешь выйти? :)")
         } else {
-            this.logs.push("Пользователь \"/" + this.currentUser.id + "\" вышел из системы");
+            this.logs.push("Пользователь \"" + this.currentUser.id + "\" вышел из системы");
             this.currentUser = {};
-            console.log("Пока!")
+            console.log("Пока!");
+            this.isAuth = false;
         }
     }
 };
