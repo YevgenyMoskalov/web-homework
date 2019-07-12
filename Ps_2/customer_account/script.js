@@ -103,16 +103,41 @@ function arraySort(a, b) {
     return 0;
 }
 
-document.getElementById('search').addEventListener('change', Search);
+document.getElementById('select-category').addEventListener('change', filterByCategory);
 
-function Search() {
-    console.log("ok")
-    let string = document.getElementById('search').value + '*';
+function filterByCategory() {
     let array = [];
+    let val = document.getElementById('select-category').value;
+    if (val === "") {
+        dataOutput(GOODS);
+        return;
+    }
     GOODS.forEach(function (element) {
-        if (new RegExp('\^'+string, 'gi').test(element.name)) {
+        console.log(element.category);
+        if (element.category === val) {
             array.push(element);
         }
     });
-    dataOutput(array)
+    dataOutput(array);
+}
+
+document.getElementById('search').addEventListener('input', search);
+
+function search() {
+    let obj = document.getElementById('search').value;
+    let array = [];
+    let reg = new RegExp('^' + obj, 'i');
+    // console.log(reg);
+
+    if (obj.value === "") {
+        dataOutput(GOODS);
+        return;
+    }
+
+    GOODS.forEach(function (element) {
+        if (reg.test(element.name)) {
+            array.push(element);
+        }
+    });
+    dataOutput(array);
 }
