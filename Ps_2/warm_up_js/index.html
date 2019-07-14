@@ -7,8 +7,8 @@
   <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<h2>The sum of the sampling interval of numbers ending in 2/3/7</h2>
 <form action="">
+  <h1>The sum of the sampling interval of numbers ending in 2/3/7</h1>
   <label for="first-number">first number:</label>
   <input id="first-number" type="number">
   <label for="second-number">second number:</label>
@@ -16,22 +16,22 @@
   <input type="button" name="submit" value="calculate" onclick="sumCalculation()">
   <label>Result:<span id="result"></span></label>
 </form>
-<h2>Conversion (ss / hh: mm: ss)</h2>
 <form action="">
+  <h1>Conversion (ss / hh: mm: ss)</h1>
   <label for="second-ss">Enter seconds:</label>
   <input id="second-ss" type="number">
   <input id="second-convert" type="button" value="convert" onclick="conversion()">
   <label>hh: mm: ss = <span id="conversion-result"></span></label>
 </form>
-<h2>Conversion (hh: mm: ss / ss)</h2>
 <form action="">
+  <h1>Conversion (hh: mm: ss / ss)</h1>
   <label for="time">Enter time:</label>
   <input type="text" placeholder="hh:mm:ss" id="time">
   <input id="time-convert" type="button" value="convert" onclick="reconversion()">
   <label>number of seconds = <span id="reconversion-result"></span></label>
 </form>
-<h2>Calculate the time span</h2>
 <form action="">
+  <h1>Calculate the time span</h1>
   <label for="first-date">first date:</label>
   <input type=datetime-local id="first-date">
   <label for="second-date">second date:</label>
@@ -40,21 +40,23 @@
   <label>time difference = <span id="time-difference"></span></label>
 </form>
 <form action=""><br>
+  <h1>Chess board N x M</h1>
   <input type="number" min="1" id="width" value="1">
   <input type="number" min="1" id="height" value="1">
   <input type="button" onclick="render()" value="start render">
-  <div id="bord"></div>
 </form>
-<h2></h2>
+<div id="bord"></div>
 <form action="">
+  <h1>URL/IP comma separated</h1>
   <textarea placeholder="URL/IP" class="textarea" onfocusout="sortUrlAndIp()" id="date"></textarea>
   <p id="outputURL"></p>
 </form>
 <form class="regularExpressionsTest">
-  <textarea placeholder="data for regular expressions" class="textarea" id = "regularExpressionsTest-data"></textarea>
-  <input type="text" id = "regex">
+  <h1>Search for text fragments</h1>
+  <textarea placeholder="data for regular expressions" class="textarea" id="regularExpressionsTest-data"></textarea>
+  <br><input type="text" id="regex"><br>
   <button type="button" onclick="markText()">submit</button>
-  <p id = "newTextarea"></p>
+  <p id="newTextarea"></p>
 </form>
 </body>
 </html>

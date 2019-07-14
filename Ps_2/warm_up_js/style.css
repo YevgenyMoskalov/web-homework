@@ -39,3 +39,20 @@ body {
     display: grid;
     width: min-content;
 }
+
+form{
+    width: 50vw;
+    margin-top: 5%;
+    padding: 20px;
+    border: 3px solid ;
+    border-top: none;
+    border-left: none;
+}
+
+#bord{
+    padding: 20px;
+}
+
+#newTextarea{
+    border: 1px solid;
+}
