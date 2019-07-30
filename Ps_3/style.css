@@ -1,0 +1,58 @@
+body{
+    background-image: url("images/wallpaper/2560x1600_-wotgot_wallpaper.jpg");
+    background-size: 100vw 100vh;
+}
+ul{
+    margin: 0;
+}
+li {
+    width: 240px;
+    height: 41px;
+    list-style: none;
+    background-size: contain;
+    padding: 8px 0 8px 90px;
+    font-size: 25px;
+    text-align: center;
+    border: solid 1px rgba(255,255,255,.5) ;
+    color: rgba(255,255,255,.3);
+    background-color: #1a1a1a;
+    text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+#item-Selection{
+    background: url("https://static.wixstatic.com/media/2cd43b_41aa84e86d3b40558000707ce5ae6b2b~mv2.png?dn=") no-repeat;
+    background-position-x: 20px ;
+    background-size: 20% auto;   /* розмер иконки */
+    background-color: #1a1a1a;
+}
+
+.butn {
+    position: relative;
+    left: 128px;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    width: 156px;
+    height: 47px;
+    background-image: url("images/buttons/button_01.png");
+    cursor: pointer;
+}
+
+.butn:hover {
+    border: none;
+    background-image: url("images/buttons/button_02.png");
+    text-decoration: none;
+}
+
+.butn:active{
+    border: none;
+    background-image: url("images/buttons/button_03.png");
+    text-decoration: none;
+}
+
+#mySelect{
+}
+
+#newSelect{}
