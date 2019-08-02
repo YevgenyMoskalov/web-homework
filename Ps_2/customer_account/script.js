@@ -37,6 +37,8 @@ const GOODS = [
     }
 ];
 
+let tempArray = GOODS;
+
 let categoryFlag = true;
 let nameFlag = true;
 
@@ -64,11 +66,11 @@ document.getElementById('category').addEventListener('click', sortedByCategory);
 function sortedByCategory() {
     let sortedArray;
     if (categoryFlag) {
-        sortedArray = GOODS.sort(function (a, b) {
+        sortedArray = tempArray.sort(function (a, b) {
             return arraySort(a.category, b.category);
         });
     } else {
-        sortedArray = GOODS.sort(function (a, b) {
+        sortedArray = tempArray.sort(function (a, b) {
             return arraySort(b.category, a.category);
         });
     }
@@ -81,11 +83,11 @@ document.getElementById('name').addEventListener('click', sortedByName);
 function sortedByName() {
     let sortedArray;
     if (nameFlag) {
-        sortedArray = GOODS.sort(function (a, b) {
+        sortedArray = tempArray.sort(function (a, b) {
             return arraySort(a.name, b.name);
         });
     } else {
-        sortedArray = GOODS.sort(function (a, b) {
+        sortedArray = tempArray.sort(function (a, b) {
             return arraySort(b.name, a.name);
         });
     }
@@ -109,6 +111,7 @@ function filterByCategory() {
     let array = [];
     let val = document.getElementById('select-category').value;
     if (val === "") {
+        tempArray = GOODS;
         dataOutput(GOODS);
         return;
     }
@@ -118,7 +121,8 @@ function filterByCategory() {
             array.push(element);
         }
     });
-    dataOutput(array);
+    tempArray = array;
+    dataOutput(tempArray);
 }
 
 document.getElementById('search').addEventListener('input', search);
@@ -127,17 +131,18 @@ function search() {
     let obj = document.getElementById('search').value;
     let array = [];
     let reg = new RegExp('^' + obj, 'i');
-    // console.log(reg);
 
     if (obj.value === "") {
+        tempArray = GOODS;
         dataOutput(GOODS);
         return;
     }
 
-    GOODS.forEach(function (element) {
+    tempArray.forEach(function (element) {
         if (reg.test(element.name)) {
             array.push(element);
         }
     });
-    dataOutput(array);
+    tempArray = array;
+    dataOutput(tempArray);
 }

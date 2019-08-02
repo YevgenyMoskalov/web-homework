@@ -2,14 +2,14 @@ function sumCalculation() {
     const lastNum = document.getElementById("second-number").value;
     let sum = 0;
     let number = document.getElementById("first-number").value;
-
-    if (number.endsWith("2") || number.endsWith("3") || number.endsWith("7")) {
+    const regex = RegExp('(2$)|(3$)|(7$)');
+    if (regex.test(number)) {
         sum += +number
     }
     while (number !== lastNum) {
         number++;
         number += "";
-        if (number.endsWith("2") || number.endsWith("3") || number.endsWith("7")) {
+        if (regex.test(number)) {
             sum += +number
         }
     }
