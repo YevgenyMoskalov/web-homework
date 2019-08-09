@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Warm up Js</title>
-  <script src="script.js"></script>
+
   <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -13,21 +13,21 @@
   <input id="first-number" type="number">
   <label for="second-number">second number:</label>
   <input id="second-number" type="number">
-  <input type="button" name="submit" value="calculate" onclick="sumCalculation()">
+  <input type="button" name="submit" value="calculate" id="but">
   <label>Result:<span id="result"></span></label>
 </form>
 <form action="">
   <h1>Conversion (ss / hh: mm: ss)</h1>
   <label for="second-ss">Enter seconds:</label>
   <input id="second-ss" type="number">
-  <input id="second-convert" type="button" value="convert" onclick="conversion()">
+  <input id="second-convert" type="button" value="convert">
   <label>hh: mm: ss = <span id="conversion-result"></span></label>
 </form>
 <form action="">
   <h1>Conversion (hh: mm: ss / ss)</h1>
   <label for="time">Enter time:</label>
   <input type="text" placeholder="hh:mm:ss" id="time">
-  <input id="time-convert" type="button" value="convert" onclick="reconversion()">
+  <input id="time-convert" type="button" value="convert">
   <label>number of seconds = <span id="reconversion-result"></span></label>
 </form>
 <form action="">
@@ -36,27 +36,30 @@
   <input type=datetime-local id="first-date">
   <label for="second-date">second date:</label>
   <input type=datetime-local id="second-date">
-  <input type="button" value="calculate" onclick="getTimeDifference()">
+  <input type="button" value="calculate" id="calc"><br>
   <label>time difference = <span id="time-difference"></span></label>
 </form>
 <form action=""><br>
   <h1>Chess board N x M</h1>
+  <label for="width">width = </label>
   <input type="number" min="1" id="width" value="1">
+  <label for="height">height = </label>
   <input type="number" min="1" id="height" value="1">
-  <input type="button" onclick="render()" value="start render">
+  <input type="button" id="render" value="start render">
 </form>
 <div id="bord"></div>
 <form action="">
   <h1>URL/IP comma separated</h1>
-  <textarea placeholder="URL/IP" class="textarea" onfocusout="sortUrlAndIp()" id="date"></textarea>
+  <textarea placeholder="URL/IP" class="textarea" id="date"></textarea>
   <p id="outputURL"></p>
 </form>
 <form class="regularExpressionsTest">
   <h1>Search for text fragments</h1>
   <textarea placeholder="data for regular expressions" class="textarea" id="regularExpressionsTest-data"></textarea>
   <br><input type="text" id="regex"><br>
-  <button type="button" onclick="markText()">submit</button>
+  <button type="button" id="but2">submit</button>
   <p id="newTextarea"></p>
 </form>
+<script type="text/javascript" src="script.js"></script>
 </body>
 </html>

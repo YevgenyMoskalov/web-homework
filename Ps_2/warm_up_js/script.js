@@ -1,3 +1,11 @@
+document.getElementById('but').addEventListener('click', sumCalculation);
+document.getElementById('second-convert').addEventListener('click',conversion);
+document.getElementById('time-convert').addEventListener('click', reconversion);
+document.getElementById('calc').addEventListener('click',getTimeDifference);
+document.getElementById('render').addEventListener('click', render);
+document.getElementById('date').addEventListener('onfocusout',sortUrlAndIp);
+document.getElementById('but2').addEventListener('click',markText);
+
 function sumCalculation() {
     const lastNum = document.getElementById("second-number").value;
     let sum = 0;
@@ -33,7 +41,7 @@ function reconversion() {
     if (time.match(pattern)) {
         time = time.split(":");
         document.getElementById("reconversion-result").innerText = time[0] * 3600 + time[1] * 60 + +time[2];
-    }else{
+    } else {
         alert("I said! \n hh:mm:ss");
     }
 }
@@ -41,16 +49,23 @@ function reconversion() {
 function getTimeDifference() {
     const first = new Date(document.getElementById("first-date").value);
     const second = new Date(document.getElementById("second-date").value);
-    let differenceInMinute = Math.abs(second - first) / 60000;
-    let timeDifference = differenceInMinute % 60 + "(minute)";
-    differenceInMinute = Math.floor(differenceInMinute / 60);
-    timeDifference += " " + differenceInMinute % 24 + "(hour)";
-    differenceInMinute = Math.floor(differenceInMinute / 24);
-    timeDifference += " " + differenceInMinute % 30 + "(day)";
-    differenceInMinute = Math.floor(differenceInMinute / 30);
-    timeDifference += " " + differenceInMinute % 12 + "(month)";
-    timeDifference += " " + Math.floor(differenceInMinute / 12) + "(year)";
-    alert(timeDifference);
+    let diff;
+
+    if (first > second) {
+        diff = new Date(first.getTime() - second.getTime());
+    } else {
+        diff = new Date(second.getTime() - first.getTime());
+    }
+
+    const y = diff.getUTCFullYear() - 1970;
+    const m = diff.getUTCMonth();
+    const d = diff.getUTCDate() - 1;
+    const h = diff.getUTCHours();
+    const min = diff.getUTCMinutes();
+    const s = diff.getUTCSeconds();
+
+    document.getElementById('time-difference').innerText = y + " year(s), " + m + " month(s), "
+        + d + " day(s), " + h + " hour(s)," + min + " minute(s), " + s + " second(s).";
 }
 
 function render() {
@@ -68,7 +83,7 @@ function render() {
             if (flag) {
                 square.className = 'square black';
             } else {
-                square.className = 'square white'
+                square.className = 'square white';
             }
             flag = !flag;
             block.appendChild(square);
@@ -86,18 +101,18 @@ function sortUrlAndIp() {
     let textarea = document.getElementById("date").value;
     let newArea = [];
     textarea = textarea.split(",");
-    for(let i = 0; i < textarea.length; i++){
-        if(textarea[i].match(secondPattern)){
+    for (let i = 0; i < textarea.length; i++) {
+        if (textarea[i].match(secondPattern)) {
             newArea.push(textarea[i].match(newSecondPattern)[0]);
-        }else if(textarea[i].match(firstPattern)){
+        } else if (textarea[i].match(firstPattern)) {
             newArea.push(textarea[i]);
         }
     }
 
     let output = document.getElementById("outputURL");
-    output.innerText  = "";
+    output.innerText = "";
 
-    for(let i = 0 ;i < newArea.length; i++){
+    for (let i = 0; i < newArea.length; i++) {
         let newLink = document.createElement("a");
         newLink.className = "link";
         newLink.innerText = newArea[i];
@@ -110,7 +125,7 @@ function sortUrlAndIp() {
 function markText() {
     let string = document.getElementById("regularExpressionsTest-data").value;
     let regex = document.getElementById("regex").value;
-    console.log(new RegExp(regex,'gi'));
-    string = string.replace(new RegExp(regex,'g'), '<mark>' + '$&' + '</mark>');
+    console.log(new RegExp(regex, 'gi'));
+    string = string.replace(new RegExp(regex, 'g'), '<mark>' + '$&' + '</mark>');
     document.getElementById("newTextarea").innerHTML = string;
 }
