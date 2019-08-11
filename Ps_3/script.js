@@ -49,22 +49,22 @@ $(document).ready(function () {
         let name = tank.name;
         icons.set(name, tank.icon);
         wallpaper.set(name, tank.wallpaper);
-        const $text = $("<li>",{id: name, class: "tank" , text: name});
+        const $text = $("<li>", {id: name, class: "tank", text: name});
         $text.css({
             'background-image': 'url(' + tank.icon + ')',
-            'background-repeat' : 'no-repeat',
+            'background-repeat': 'no-repeat',
         });
         $select.append($text);
     });
     $select.appendTo("#mySelect");
     $select.hide();
 
-    $("#item-Selection").on("click",function(event) {
+    $("#item-Selection").on("click", function (event) {
         event.stopPropagation();
         $select.stop().slideToggle();
     });
 
-    $(".tank").on("click",function (event) {
+    $(".tank").on("click", function () {
         $select.slideUp();
         const content = $(this).html();
         $("#item-Selection").html(content);
