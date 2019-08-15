@@ -1,72 +1,136 @@
 <?php
-// 1)
-    $result = 0;
-    for ($i = -1000; $i <= 1000; $i++) {
-        $result += $i;
-    }
-    echo 'Result: ' . $result;
-// 2)
-    $result = 0;
-    for ($i = -1000; $i <= 1000; $i++) {
-        if (in_array(abs($i % 10), [2, 3, 7], true)) {
-            $result += $i;
-        }
-    }
-    echo 'Result: ' . $result;
-// 7)
 session_start();
 if (isset($_SESSION['views'])) {
     $_SESSION['views'] = $_SESSION['views'] + 1;
 } else {
     $_SESSION['views'] = 1;
 }
-echo "views = " . $_SESSION['views'];
-// 5)
-echo array_sum(str_split('534')) . "\n";
+
+echo 'hit counter : ' . $_SESSION['views'] . "\n";
+?>
+  <!doctype html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PS_4</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+  </head>
+  <body>
+  <h1>My chessboard</h1>
+  <?php draw_chessboard(); ?>
+  <hr>
+  <h1>sum of a row from -1000 to 1000</h1>
+  <output><b><?php firstTask() ?></b></output>
+  <hr>
+  <h1>the sum of the numbers of the series from -1000 to 1000 that end in [2, 3, 7]</h1>
+  <output><b><?php secondTask() ?></b></output>
+  <hr>
+  <h1>sum of digits of a number</h1>
+  <form action="action.php" method="post">
+    <label for="number">enter number </label><label>
+      <input type="text" name="number">
+    </label>
+    <input type="submit" value="submit">
+    <output><b>Result: <?php if (isset($_SESSION['sumDigits'])) {
+                echo $_SESSION['sumDigits'];
+                echo "ok!";
+            } else {
+                echo "wtf!";
+            } ?></b>
+    </output>
+  </form>
+  <hr>
+  <h1>Generate an array of random integers from 1 to 10, the length of the array is 100.
+    Remove repeats from the array, sort, reverse and multiply each element by two.</h1>
+  <output><b><?php sixthTask() ?></b></output>
+  <hr>
+  <h1>Count the number of lines, letters and spaces in the entered text</h1>
+  <form action="action.php" method="post">
+    <input type="text" name="text">
+    <input type="submit" value="submit">
+    <output><b>Result: <?php if (isset($_SESSION['textCounter'])) {
+                echo $_SESSION['textCounter'];
+            } ?>
+  </form>
+  <hr>
+  <h1>file upload</h1>
+  <form action="action.php" method="post">
+    <input type="file" name="file"/>
+    <input type="submit" value="Upload file" name="upload"/>
+    <input type="submit" value="show files" name="show"/>
+  </form>
+  </body>
+  </html>
+
+<?php
+
+//// 1)
+function firstTask()
+{
+    $result = 0;
+    for ($i = -1000; $i <= 1000; $i++) {
+        $result += $i;
+    }
+    echo 'Result: ' . $result . '<br>';
+}
+
+// 2)
+function secondTask()
+{
+    $result = 0;
+    for ($i = -1000; $i <= 1000; $i++) {
+        if (in_array(abs($i % 10), [2, 3, 7], true)) {
+            $result += $i;
+        }
+    }
+    echo 'Result: ' . $result . '<br>';;
+}
 
 // 6)
-$rand_array = [];
-for ($i = 0; $i <= 100; $i++) {
-    array_push($rand_array, rand(1, 10));
+function sixthTask()
+{
+    $rand_array = [];
+    for ($i = 0; $i <= 100; $i++) {
+        array_push($rand_array, rand(1, 10));
+    }
+
+    $normal_array = array_unique($rand_array);
+
+    echo "\n";
+    sort($normal_array);
+    for ($i = 0; $i <= 9; $i++) {
+        echo $normal_array[$i] . '<br>';
+    }
+    echo '<br>';
+    rsort($normal_array);
+    for ($i = 0; $i <= 9; $i++) {
+        echo $normal_array[$i] . '<br>';
+    }
+    echo '<br>';
+    for ($i = 0; $i <= 9; $i++) {
+        $normal_array[$i] = $normal_array[$i] * 2;
+    }
+    for ($i = 0; $i <= 9; $i++) {
+        echo $normal_array[$i] . '<br>';
+    }
+    echo '<br>';
 }
 
-$normal_array = array_unique($rand_array);
+//4
+function draw_chessboard()
+{
+    echo '<div class="container_board">';
+    $boardSize = 8;
+    for ($i = 0; $i < $boardSize; $i++) {
+        for ($j = 0; $j < $boardSize; $j++) {
+            $color = ($i % 2 == $j % 2) ? 'white' : 'black';
+            echo '<div class="block ' . $color . '"></div>';
+        }
+    }
+    echo '</div>';
+}
 
-for ($i = 0; $i <= 100; $i++) {
-    echo $rand_array[$i] . ' ' . $normal_array[$i] . "\n";
-}
-echo "\n";
-sort($normal_array);
-for ($i = 0; $i <= 9; $i++) {
-    echo $normal_array[$i] . "\n";
-}
-echo "\n";
-rsort($normal_array);
-for ($i = 0; $i <= 9; $i++) {
-    echo $normal_array[$i] . "\n";
-}
-for ($i = 0; $i <= 9; $i++) {
-    $normal_array[$i] = $normal_array[$i] * 2;
-}
-for ($i = 0; $i <= 9; $i++) {
-    echo $normal_array[$i] . "\n";
-}
-//8)
-echo "\n";
-$str = "aaaaaaa\nbb 5bbbbbb\nc33ccc1 11cccc\nddd dd d  dddd d";
-$lines = explode("\n", $str);
-$count = count($lines);
-echo "lines : $count";
-echo "\n";
-echo "\n";
-$space_counter = substr_count($str, ' ');
-echo "space : $space_counter";
-echo "\n";
-echo "\n";
-$number_counter = preg_match_all("/[0-9]/", $str);
-echo "numbers :  $number_counter";
-echo "\n";
-echo "\n";
-$characters = strlen($str);
-$characters -= $space_counter + $number_counter + $count - 1;
-echo "characters : $characters";
+?>

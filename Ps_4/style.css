@@ -1,0 +1,19 @@
+
+.block {
+    width: 40px;
+    height: 40px;
+    margin: 0;
+}
+.white {
+    background-color: white;
+}
+.black {
+    background-color: black;
+}
+.container_board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 320px;
+    height: 320px;
+    border: solid 1px black;
+}
