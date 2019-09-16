@@ -24,7 +24,7 @@ li {
 #item-Selection{
     background: url("https://static.wixstatic.com/media/2cd43b_41aa84e86d3b40558000707ce5ae6b2b~mv2.png?dn=") no-repeat;
     background-position-x: 20px ;
-    background-size: 20% auto;   /* розмер иконки */
+    background-size: 20% auto;
     background-color: #1a1a1a;
 }
 

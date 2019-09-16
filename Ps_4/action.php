@@ -4,7 +4,9 @@ if ($_POST['number']) {
 } else if ($_POST['text']) {
     eighthTask($_POST['text']);
 } else if ($_POST['upload']) {
-    uploadFile($_POST['file']);
+    uploadFile($_POST['upload']);
+} else if ($_POST['show']) {
+    showFile();
 }
 function fifthTask($number)
 {
@@ -29,16 +31,26 @@ function eighthTask($text)
     $_SESSION['textCounter'] = "lines : $count\nspace : $space_counter\nnumbers :  $number_counter\ncharacters : $characters\"";
     header('Location: index.php');
 }
-
+//===========================================
 function uploadFile($file)
 {
-    if (is_uploaded_file($file)) {
-        if (move_uploaded_file('/first_directory/' . $file, '/new_directory/' . $file)) {
-            echo 'wonderfully you uploaded the file!';
-        } else {
-            echo 'oh something went wrong!';
-        }
+    $directory = 'uploads/';
+    $files = array_diff(scandir($directory, SCANDIR_SORT_NONE), ['.', '..']);
+    $file = $_FILES['file']['name'];
+    if ($file == '') {
+        echo 'No file specified!<br>';
     } else {
-        echo 'oh something went wrong!!!';
+        upload($file, $directory);
     }
+}
+
+function upload($file, $directory)
+{
+    $pathTo = $directory . $file;
+    move_uploaded_file($_FILES['file']['tmp_name'], $pathTo);
+    echo 'File uploaded!';
+}
+//=====================================================================
+function showFile()
+{
 }

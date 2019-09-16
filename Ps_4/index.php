@@ -36,9 +36,6 @@ echo 'hit counter : ' . $_SESSION['views'] . "\n";
     <input type="submit" value="submit">
     <output><b>Result: <?php if (isset($_SESSION['sumDigits'])) {
                 echo $_SESSION['sumDigits'];
-                echo "ok!";
-            } else {
-                echo "wtf!";
             } ?></b>
     </output>
   </form>
@@ -57,7 +54,7 @@ echo 'hit counter : ' . $_SESSION['views'] . "\n";
   </form>
   <hr>
   <h1>file upload</h1>
-  <form action="action.php" method="post">
+  <form action="action.php" enctype="multipart/form-data" method="post">
     <input type="file" name="file"/>
     <input type="submit" value="Upload file" name="upload"/>
     <input type="submit" value="show files" name="show"/>
