@@ -1,13 +1,8 @@
 <?php
 session_start();
-if (isset($_SESSION['views'])) {
-    $_SESSION['views'] = $_SESSION['views'] + 1;
-} else {
-    $_SESSION['views'] = 1;
-}
-
-echo 'hit counter : ' . $_SESSION['views'] . "\n";
+isset($_SESSION['counter']) ? $_SESSION['counter']++ : $_SESSION['counter'] = 1;
 ?>
+
   <!doctype html>
   <html lang="en">
   <head>
@@ -19,6 +14,7 @@ echo 'hit counter : ' . $_SESSION['views'] . "\n";
     <link rel="stylesheet" href="style.css" type="text/css">
   </head>
   <body>
+  <?php echo 'hit counter : ' . $_SESSION['counter'] . "\n"; ?>
   <h1>My chessboard</h1>
   <?php draw_chessboard(); ?>
   <hr>
@@ -34,12 +30,11 @@ echo 'hit counter : ' . $_SESSION['views'] . "\n";
       <input type="text" name="number">
     </label>
     <input type="submit" value="submit">
-    <output><b>Result: <?php if (isset($_SESSION['sumDigits'])) {
-                echo $_SESSION['sumDigits'];
-            } ?></b>
-    </output>
+    <b>Result: <?php echo isset($_SESSION['task5']) ? " " . $_SESSION['task5'] : "";
+        unset($_SESSION['task5']) ?></b>
   </form>
   <hr>
+
   <h1>Generate an array of random integers from 1 to 10, the length of the array is 100.
     Remove repeats from the array, sort, reverse and multiply each element by two.</h1>
   <output><b><?php sixthTask() ?></b></output>
@@ -50,9 +45,11 @@ echo 'hit counter : ' . $_SESSION['views'] . "\n";
     <input type="submit" value="submit">
     <output><b>Result: <?php if (isset($_SESSION['textCounter'])) {
                 echo $_SESSION['textCounter'];
+                unset($_SESSION['textCounter']);
             } ?>
   </form>
   <hr>
+
   <h1>file upload</h1>
   <form action="action.php" enctype="multipart/form-data" method="post">
     <input type="file" name="file"/>
