@@ -1,5 +1,4 @@
 <?php
-session_start();
 if (isset($_POST['number'])) {
     fifthTask(($_POST['number']));
 } else if ($_POST['text']) {
@@ -29,7 +28,7 @@ function eighthTask($text)
     header('Location: index.php');
 }
 
-//===========================================
+//================что за херня тут твориться?===========================
 function uploadFile($file)
 {
     $directory = 'files/';
