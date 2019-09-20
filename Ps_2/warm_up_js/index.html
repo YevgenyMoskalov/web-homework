@@ -10,16 +10,16 @@
 <form action="">
   <h1>The sum of the sampling interval of numbers ending in 2/3/7</h1>
   <label for="first-number">first number:</label>
-  <input id="first-number" type="number">
+  <input id="first-number" type="number" min="0">
   <label for="second-number">second number:</label>
-  <input id="second-number" type="number">
+  <input id="second-number" type="number" min="0">
   <input type="button" name="submit" value="calculate" id="but">
   <label>Result:<span id="result"></span></label>
 </form>
 <form action="">
   <h1>Conversion (ss / hh: mm: ss)</h1>
   <label for="second-ss">Enter seconds:</label>
-  <input id="second-ss" type="number">
+  <input id="second-ss" type="number" min="0">
   <input id="second-convert" type="button" value="convert">
   <label>hh: mm: ss = <span id="conversion-result"></span></label>
 </form>
