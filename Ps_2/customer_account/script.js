@@ -37,14 +37,109 @@ const GOODS = [
     }
 ];
 
-let tempArray = GOODS;
 
 let categoryFlag = true;
 let nameFlag = true;
+let clickNameFlag = false;
+let clickCategoryFlag = false;
 
-dataOutput(GOODS);
+displayTable();
 
-function dataOutput(elements) {
+document.getElementById('search').addEventListener('input', displayTable);
+document.getElementById('select-category').addEventListener('change', displayTable);
+document.getElementById('name').addEventListener('click', () => {
+    clickNameFlag = true;
+    displayTable();
+    clickNameFlag = false
+});
+document.getElementById('category').addEventListener('click', () => {
+    clickCategoryFlag = true;
+    displayTable();
+    clickCategoryFlag = false
+});
+
+
+function displayTable() {
+    let str = document.getElementById('search').value;
+    let category = document.getElementById('select-category').value;
+    let tempArray = GOODS;
+
+    if (str !== "") {
+        tempArray = search(tempArray, str)
+    }
+    filterByCategory(tempArray, category);
+
+}
+
+function search(elements, tempRegex) {
+    let array = [];
+    let reg = new RegExp('^' + tempRegex, 'i');
+
+    elements.forEach(function (element) {
+        if (reg.test(element.name)) {
+            array.push(element);
+        }
+    });
+    elements = array;
+    return elements
+}
+
+/**
+ *
+ * @param elements
+ * @param category
+ */
+function filterByCategory(elements, category) {
+    if (category !== "") {
+        let array = [];
+        elements.forEach(function (element) {
+            console.log(element.category);
+            if (element.category === category) {
+                array.push(element);
+            }
+        });
+        elements = array;
+
+    }
+    if (clickCategoryFlag) {
+        sortedByCategory(elements)
+    } else if (clickNameFlag) {
+        sortedByName(elements)
+    }
+    drawTable(elements)
+}
+
+function sortedByCategory(elements) {
+    let sortedArray;
+    if (categoryFlag) {
+        sortedArray = elements.sort(function (a, b) {
+            return arraySort(a.category, b.category);
+        });
+    } else {
+        sortedArray = elements.sort(function (a, b) {
+            return arraySort(b.category, a.category);
+        });
+    }
+    drawTable(sortedArray);
+    categoryFlag = !categoryFlag;
+}
+
+function sortedByName(elements) {
+    let sortedArray;
+    if (nameFlag) {
+        sortedArray = elements.sort(function (a, b) {
+            return arraySort(a.name, b.name);
+        });
+    } else {
+        sortedArray = elements.sort(function (a, b) {
+            return arraySort(b.name, a.name);
+        });
+    }
+    drawTable(sortedArray);
+    nameFlag = !nameFlag;
+}
+
+function drawTable(elements) {
     let k = '<tbody>';
     let allMoney = 0;
     elements.forEach(function (element) {
@@ -61,40 +156,6 @@ function dataOutput(elements) {
     document.getElementById('total').innerHTML = allMoney + '$';
 }
 
-document.getElementById('category').addEventListener('click', sortedByCategory);
-
-function sortedByCategory() {
-    let sortedArray;
-    if (categoryFlag) {
-        sortedArray = tempArray.sort(function (a, b) {
-            return arraySort(a.category, b.category);
-        });
-    } else {
-        sortedArray = tempArray.sort(function (a, b) {
-            return arraySort(b.category, a.category);
-        });
-    }
-    dataOutput(sortedArray);
-    categoryFlag = !categoryFlag;
-}
-
-document.getElementById('name').addEventListener('click', sortedByName);
-
-function sortedByName() {
-    let sortedArray;
-    if (nameFlag) {
-        sortedArray = tempArray.sort(function (a, b) {
-            return arraySort(a.name, b.name);
-        });
-    } else {
-        sortedArray = tempArray.sort(function (a, b) {
-            return arraySort(b.name, a.name);
-        });
-    }
-    dataOutput(sortedArray);
-    nameFlag = !nameFlag;
-}
-
 function arraySort(a, b) {
     if (a > b) {
         return 1;
@@ -103,46 +164,4 @@ function arraySort(a, b) {
         return -1;
     }
     return 0;
-}
-
-document.getElementById('select-category').addEventListener('change', filterByCategory);
-
-function filterByCategory() {
-    let array = [];
-    let val = document.getElementById('select-category').value;
-    if (val === "") {
-        tempArray = GOODS;
-        dataOutput(GOODS);
-        return;
-    }
-    GOODS.forEach(function (element) {
-        console.log(element.category);
-        if (element.category === val) {
-            array.push(element);
-        }
-    });
-    tempArray = array;
-    dataOutput(tempArray);
-}
-
-document.getElementById('search').addEventListener('input', search);
-
-function search() {
-    let obj = document.getElementById('search').value;
-    let array = [];
-    let reg = new RegExp('^' + obj, 'i');
-
-    if (obj.value === "") {
-        tempArray = GOODS;
-        dataOutput(GOODS);
-        return;
-    }
-
-    tempArray.forEach(function (element) {
-        if (reg.test(element.name)) {
-            array.push(element);
-        }
-    });
-    tempArray = array;
-    dataOutput(tempArray);
 }
